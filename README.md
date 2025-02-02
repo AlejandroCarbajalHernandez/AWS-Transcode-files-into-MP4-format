@@ -90,7 +90,10 @@ Ensure that the following environment variables are set when deploying the Lambd
 - **File Deletion Errors**: If the Lambda function fails to delete the original file, it logs the error for troubleshooting.
 
 ---
-
+## Summary
+- The processed file is identified by the _processed suffix in its name (e.g., video_processed.mp4).
+- The Lambda function checks if the uploaded file already has this suffix or contains the word processed in its name before starting the transcoding process.
+- After transcoding, it uses the output filename (with _processed) to confirm that the file exists in S3 and is successfully transcoded. If found, it proceeds with cleanup by deleting the original file.
 ## Conclusion
 
 This AWS Lambda function automates the transcoding of media files uploaded to an S3 bucket using AWS MediaConvert. It handles both S3 events and SNS notifications, ensuring that media files are efficiently converted into MP4 format while cleaning up the original files post-transcoding. This solution is highly scalable, cost-efficient, and easily integrates into serverless workflows for media processing.

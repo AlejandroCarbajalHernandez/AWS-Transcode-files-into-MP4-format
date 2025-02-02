@@ -1,0 +1,1 @@
+This Python code is a Lambda function that processes media files uploaded to an S3 bucket, using AWS MediaConvert to transcode those files into MP4 format. The function performs different tasks depending on whether it receives an S3 event or an SNS notification. Below is a breakdown of the key components and their functionality:
